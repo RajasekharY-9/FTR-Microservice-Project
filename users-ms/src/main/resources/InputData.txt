@@ -1,0 +1,35 @@
+CREATE-POST
+http://localhost:8080/api/user-profile
+{
+  "userId": 1,
+  "firstName": "John",
+  "lastName": "Doe",
+  "emailId": "john.doe@example.com",
+  "mobileNumber": 1234567890,
+  "password": "password123",
+  "nationality": "American",
+  "passportNumber": "P1234567",
+  "permanentAddress": "1234 Elm Street",
+  "officeAddress": "5678 Oak Street",
+  "personalIdentificationNumber": 987654321
+}
+VIEW-GET
+http://localhost:8080/api/user-profile/1
+
+UPDATE-PUT
+http://localhost:8080/api/user-profile/1
+{
+  "userId": 1,
+  "firstName": "John",
+  "lastName": "Doe",
+  "emailId": "john.doe@example.com",
+  "mobileNumber": 1234567890,
+  "password": "newpassword123",
+  "nationality": "American",
+  "passportNumber": "P1234567",
+  "permanentAddress": "1234 Elm Street",
+  "officeAddress": "5678 Oak Street",
+  "personalIdentificationNumber": 987654321
+}
+DELETE-DELETE
+http://localhost:8080/api/user-profile/1

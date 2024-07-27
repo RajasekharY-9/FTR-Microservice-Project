@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: user-ms
+  datasource:
+    url: jdbc:mysql://localhost:3306/freight_transport_region_user
+    username: root
+    password: 9398434528
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+  cloud:
+    config:
+      import-check:
+        enabled: false
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: true
+
+
+SERVICE:
+  User_Already_Exists: User already present
+  User_Not_Exists: User not available

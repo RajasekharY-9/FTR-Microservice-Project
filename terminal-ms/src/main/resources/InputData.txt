@@ -1,0 +1,28 @@
+Create-POST
+http://localhost:8081/ftr/terminals
+{
+  "terminalId": "T001",
+  "terminalName": "Terminal 1",
+  "country": "USA",
+  "itemType": "Container",
+  "terminalDescription": "Main container terminal",
+  "capacity": 1000,
+  "availableCapacity": 800,
+  "status": "Active",
+  "harborLocation": "Port of Los Angeles"
+}
+
+GET all
+http://localhost:8080/ftr/terminals
+
+GET by ID
+http://localhost:8080/ftr/terminals/T001
+
+Get by ITEM Type
+http://localhost:8080/ftr/terminals/itemType/Container
+
+Update-PUT
+http://localhost:8080/ftr/terminals/T001/1200
+
+delete
+http://localhost:8080/ftr/terminals/T001
