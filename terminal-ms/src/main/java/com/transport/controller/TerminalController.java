@@ -1,6 +1,7 @@
 package com.transport.controller;
 
 import com.transport.dto.TerminalDTO;
+import com.transport.exception.TerminalException;
 import com.transport.service.TerminalServiceImpl;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +22,12 @@ public class TerminalController {
     }
 
     @GetMapping("/{terminalId}")
-    public ResponseEntity<TerminalDTO> fetchTerminalByTerminalId(@PathVariable String terminalId) {
+    public ResponseEntity<TerminalDTO> fetchTerminalByTerminalId(@PathVariable String terminalId) throws TerminalException {
         return ResponseEntity.ok(terminalService.fetchFTRTerminalByTerminalId(terminalId));
     }
 
     @GetMapping("/itemType/{itemType}")
-    public ResponseEntity<List<TerminalDTO>> fetchTerminalsByItemType(@PathVariable String itemType) {
+    public ResponseEntity<List<TerminalDTO>> fetchTerminalsByItemType(@PathVariable String itemType) throws TerminalException {
         return ResponseEntity.ok(terminalService.fetchTerminalsByItemType(itemType));
     }
 

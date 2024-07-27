@@ -2,10 +2,12 @@ package com.transport.service;
 
 import com.transport.dto.TerminalDTO;
 import com.transport.entity.Terminal;
+import com.transport.exception.TerminalException;
 import com.transport.repository.TerminalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,19 +23,24 @@ public class TerminalServiceImpl implements TerminalService {
         if (terminals.isEmpty()) {
             throw new RuntimeException("No terminals exist, please add.");
         }
-        return terminals.stream().map(this::convertToDTO).collect(Collectors.toList());
+        //return terminals.stream().map(this::convertToDTO).collect(Collectors.toList());
+        List<TerminalDTO> list=new ArrayList<>();
+        for(Terminal tm:terminals){
+            list.add(convertToDTO(tm));
+        }
+        return list;
     }
     @Override
-    public TerminalDTO fetchFTRTerminalByTerminalId(String terminalId) {
+    public TerminalDTO fetchFTRTerminalByTerminalId(String terminalId) throws TerminalException {
         Terminal terminal = terminalRepository.findById(terminalId)
-                .orElseThrow(() -> new RuntimeException("Terminal details not found for ID : " + terminalId));
+                .orElseThrow(() -> new TerminalException("Terminal details not found for ID : " + terminalId));
         return convertToDTO(terminal);
     }
     @Override
-    public List<TerminalDTO> fetchTerminalsByItemType(String itemType) {
+    public List<TerminalDTO> fetchTerminalsByItemType(String itemType) throws TerminalException {
         List<Terminal> terminals = terminalRepository.findByItemType(itemType);
         if (terminals.isEmpty()) {
-            throw new RuntimeException("No such Item type exists.");
+            throw new TerminalException("No such Item type exists.");
         }
         return terminals.stream().map(this::convertToDTO).collect(Collectors.toList());
     }

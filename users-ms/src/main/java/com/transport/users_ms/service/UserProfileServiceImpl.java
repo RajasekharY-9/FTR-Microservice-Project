@@ -2,11 +2,13 @@ package com.transport.users_ms.service;
 
 import com.transport.users_ms.dto.UserProfileDTO;
 import com.transport.users_ms.entity.UserProfile;
+import com.transport.users_ms.entity.WorkitemDTO;
 import com.transport.users_ms.exception.UserProfileException;
 import com.transport.users_ms.repo.UserProfileRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Optional;
 @Service
@@ -14,6 +16,8 @@ import java.util.Optional;
 public class UserProfileServiceImpl implements UserProfileService{
     @Autowired
     private UserProfileRepository userProfileRepository;
+    @Autowired
+    private RestTemplate restTemplate;
 
     @Override
     public UserProfileDTO createUserProfile(UserProfileDTO userProfileDTO) throws UserProfileException {
@@ -62,6 +66,19 @@ public class UserProfileServiceImpl implements UserProfileService{
             throw new UserProfileException("SERVICE.User_Not_Exists");
         }
         userProfileRepository.deleteById(userId);
+    }
+
+    static String postWorkItem="http://localhost:7003/ftr/workItems";
+    static String updateWorkItem="http://localhost:7003/ftr/workItems/{workitemId}";
+    @Override
+    public WorkitemDTO createWorkItem(WorkitemDTO workitemDTO) {
+        return restTemplate.postForObject(postWorkItem,workitemDTO, WorkitemDTO.class);
+    }
+
+    @Override
+    public void updateWorkItem(String workitemId, WorkitemDTO workitemDTO) {
+        String url=String.format("%s%s",updateWorkItem,workitemId);
+         restTemplate.put(url,workitemDTO);
     }
 
     private UserProfile mapToEntity(UserProfileDTO userProfileDTO) {

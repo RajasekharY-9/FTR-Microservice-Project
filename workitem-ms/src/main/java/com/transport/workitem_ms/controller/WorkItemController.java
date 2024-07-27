@@ -17,12 +17,14 @@ public class WorkItemController {
     private WorkItemService workitemService;
 
     @PostMapping
+    //http://localhost:7003/ftr/workItems
     public ResponseEntity<WorkitemDTO> createWorkitem(@Valid @RequestBody WorkitemDTO newWorkitem) {
         WorkitemDTO createdWorkitem = workitemService.createWorkitem(newWorkitem);
         return ResponseEntity.ok(createdWorkitem);
     }
 
     @PutMapping("/{workitemId}")
+    //http://localhost:7003/ftr/workItems/J71948
     public ResponseEntity<String> updateWorkItem(@PathVariable String workitemId, @Valid @RequestBody WorkitemDTO workitemDTO) {
         workitemService.updateWorkitemId(workitemId, workitemDTO);
         return ResponseEntity.ok("Workitem updated successfully.");

@@ -2,6 +2,7 @@ package com.transport.users_ms.controller;
 
 
 import com.transport.users_ms.dto.UserProfileDTO;
+import com.transport.users_ms.entity.WorkitemDTO;
 import com.transport.users_ms.exception.UserProfileException;
 import com.transport.users_ms.service.UserProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,15 @@ public class UserProfileController {
     @PostMapping
     public UserProfileDTO createUserProfile(@RequestBody UserProfileDTO userProfileDTO) throws UserProfileException {
         return userProfileService.createUserProfile(userProfileDTO);
+    }
+    @PostMapping("/user-newitem")
+    //http://localhost:8080/api/user-profile/user-newitem
+    public WorkitemDTO createWorkItem(@RequestBody WorkitemDTO workitemDTO) throws UserProfileException {
+        return userProfileService.createWorkItem(workitemDTO);
+    }
+    @PutMapping("/user-update-item/{workitemId}")
+    public void updateWorkItem(@PathVariable String workitemId, @RequestBody WorkitemDTO workitemDTO) throws UserProfileException {
+         userProfileService.updateWorkItem(workitemId,workitemDTO);
     }
 
     @PutMapping("/{userId}")
