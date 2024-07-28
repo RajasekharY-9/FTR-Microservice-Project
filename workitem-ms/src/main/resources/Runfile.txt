@@ -1,0 +1,4 @@
+java -jar -Dspring.profiles.active=dev workitem-ms-0.0.1-SNAPSHOT.jar
+java -jar -Dspring.profiles.active=test workitem-ms-0.0.1-SNAPSHOT.jar
+java -jar workitem-ms-0.0.1-SNAPSHOT.jar -Dspring.profiles.active=prod
+ mvn clean install -DskipTests

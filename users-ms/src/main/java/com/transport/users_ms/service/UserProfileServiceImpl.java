@@ -7,9 +7,11 @@ import com.transport.users_ms.exception.UserProfileException;
 import com.transport.users_ms.repo.UserProfileRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
 import java.util.Optional;
 @Service
 @Transactional
@@ -67,9 +69,12 @@ public class UserProfileServiceImpl implements UserProfileService{
         }
         userProfileRepository.deleteById(userId);
     }
-
-    static String postWorkItem="http://localhost:7003/ftr/workItems";
-    static String updateWorkItem="http://localhost:7003/ftr/workItems/{workitemId}";
+    static String postWorkItem="http://workitem-ms/ftr/workItems";
+    static String updateWorkItem="http://workitem-ms/ftr/workItems/{workitemId}";
+    static String allHarbors="http://vehicle-ms/vehicles/harbor-all";
+    //static String postWorkItem="http://localhost:7003/ftr/workItems";
+   // static String updateWorkItem="http://localhost:7003/ftr/workItems/{workitemId}";
+    //static String allHarbors="http://localhost:7002/vehicles/harbor-all";
     @Override
     public WorkitemDTO createWorkItem(WorkitemDTO workitemDTO) {
         return restTemplate.postForObject(postWorkItem,workitemDTO, WorkitemDTO.class);
@@ -79,6 +84,12 @@ public class UserProfileServiceImpl implements UserProfileService{
     public void updateWorkItem(String workitemId, WorkitemDTO workitemDTO) {
         String url=String.format("%s%s",updateWorkItem,workitemId);
          restTemplate.put(url,workitemDTO);
+    }
+
+    @Override
+    public List<String> getAvailableHarborLocations() {
+
+        return restTemplate.getForObject(allHarbors, List.class);
     }
 
     private UserProfile mapToEntity(UserProfileDTO userProfileDTO) {

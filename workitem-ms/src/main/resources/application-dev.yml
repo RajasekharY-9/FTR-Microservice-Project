@@ -1,14 +1,16 @@
 server:
-  port: 7002
+  port: 7003
+
 spring:
   application:
-    name: vehicle-ms
+    name: workitem-ms
 
   datasource:
-    url: jdbc:mysql://localhost:3306/freight_transport_region_vehicle
+    url: jdbc:mysql://localhost:3306/freight_transport_region_workitems
     username: root
     password: 9398434528
     driver-class-name: com.mysql.cj.jdbc.Driver
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -16,9 +18,10 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
+
   mvc:
     format:
       date: dd-MMM-yyyy
+
   messages:
     basename: ValidationMessages
-

@@ -36,7 +36,11 @@ public class VehicleController {
         VehicleDTO vehicle = vehicleService.fetchVehicleDetailsByVehicleNumber(vehicleNumber);
         return ResponseEntity.ok(vehicle);
     }
-
+    @GetMapping("/harbor-all")
+    //http://localhost:7002/vehicles/harbor-all
+    public List<String> availableHarborLocations(){
+       return vehicleService.availableHarborLocations();
+    }
     @GetMapping("/managed-name/{vehicleName}")
     public ResponseEntity<List<VehicleDTO>> fetchVehicleDetailsByVehicleName(@PathVariable String vehicleName) {
         List<VehicleDTO> vehicles = vehicleService.fetchVehicleDetailsByVehicleName(vehicleName);

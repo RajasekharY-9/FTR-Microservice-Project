@@ -6,6 +6,8 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 @SpringBootApplication
 @EnableEurekaServer
+//This class is the main class which stores all the information about our MS like how many ms we have
+//
 public class EurekaServerServiceRegistryApplication {
 
 	public static void main(String[] args) {

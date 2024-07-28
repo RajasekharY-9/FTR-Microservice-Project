@@ -26,6 +26,7 @@ public class UserProfileController {
         return userProfileService.createWorkItem(workitemDTO);
     }
     @PutMapping("/user-update-item/{workitemId}")
+    //http://localhost:8080/api/user-profile/user-update-item/{workitemId}
     public void updateWorkItem(@PathVariable String workitemId, @RequestBody WorkitemDTO workitemDTO) throws UserProfileException {
          userProfileService.updateWorkItem(workitemId,workitemDTO);
     }
@@ -43,5 +44,10 @@ public class UserProfileController {
     @DeleteMapping("/{userId}")
     public void deleteUserProfile(@PathVariable Long userId)throws UserProfileException {
         userProfileService.deleteUserProfile(userId);
+    }
+    @GetMapping("/all-harbors")
+    //
+    public List<String> getAvailableHarborLocations(){
+     return    userProfileService.getAvailableHarborLocations();
     }
 }

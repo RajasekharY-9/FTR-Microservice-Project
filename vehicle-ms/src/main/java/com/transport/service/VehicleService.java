@@ -32,6 +32,9 @@ public class VehicleService {
         }
         return vehicles.stream().map(this::convertToDTO).collect(Collectors.toList());
     }
+    public List<String> availableHarborLocations(){
+return vehicleRepository.findAllByHarborLocation();
+    }
 
     public VehicleDTO fetchVehicleDetailsByVehicleNumber(String vehicleNumber) {
         Vehicle vehicle = vehicleRepository.findById(vehicleNumber)
