@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "08cfe912-9d41-45bd-8525-820872f10cb9",
+		"name": "FTR Vehicle API",
+		"description": "Postman collection for FTR Vehicle API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Insert New Vehicle",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"vehicleNumber\": \"VH01\",\n    \"vehicleName\": \"Truck A\",\n    \"maxLiftingCapacity\": 1500.5,\n    \"retireDate\": \"2030-12-31\",\n    \"vehicleStatus\": \"Active\",\n    \"country\": \"USA\",\n    \"harborLocation\": \"New York\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7002/vehicles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7002",
+					"path": [
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Available Vehicles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7002/vehicles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7002",
+					"path": [
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Vehicle Details by Vehicle Number",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7002/vehicles/managed-number/VH01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7002",
+					"path": [
+						"vehicles",
+						"managed-number",
+						"VH01"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Vehicle Details by Vehicle Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7002/vehicles/managed-name/Truck A",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7002",
+					"path": [
+						"vehicles",
+						"managed-name",
+						"Truck A"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Vehicle Status",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\"Inactive\""
+				},
+				"url": {
+					"raw": "http://localhost:7002/vehicles/VH01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7002",
+					"path": [
+						"vehicles",
+						"VH01"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Vehicle",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7002/vehicles/VH01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7002",
+					"path": [
+						"vehicles",
+						"VH01"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

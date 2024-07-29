@@ -1,0 +1,200 @@
+{
+	"info": {
+		"_postman_id": "090f926b-37f7-4f51-9bce-2e77ad8fc56f",
+		"name": "FTR Workitem MS API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create a New Workitem",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"workitemId\": \"WI01\",\n    \"userId\": 12345,\n    \"itemName\": \"Item A\",\n    \"itemType\": \"Type A\",\n    \"itemDescription\": \"Description of item A\",\n    \"messageToRecipient\": \"Please handle this item with care.\",\n    \"quantity\": \"10\",\n    \"sourceCountry\": \"Country A\",\n    \"destinationCountry\": \"Country B\",\n    \"originHarborLocation\": \"Harbor A\",\n    \"selectedHarborLocation\": \"Harbor B\",\n    \"shippingDate\": \"2024-07-30\",\n    \"amount\": 1000\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7003/ftr/workItems",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7003",
+					"path": [
+						"ftr",
+						"workItems"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a Workitem",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": 12345,\n    \"itemName\": \"Updated Item\",\n    \"itemType\": \"Updated Type\",\n    \"itemDescription\": \"Updated description\",\n    \"messageToRecipient\": \"Updated message.\",\n    \"quantity\": \"15\",\n    \"sourceCountry\": \"Updated Country A\",\n    \"destinationCountry\": \"Updated Country B\",\n    \"originHarborLocation\": \"Updated Harbor A\",\n    \"selectedHarborLocation\": \"Updated Harbor B\",\n    \"shippingDate\": \"2024-08-15\",\n    \"amount\": 2000\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7003/ftr/workItems/{{workitemId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7003",
+					"path": [
+						"ftr",
+						"workItems",
+						"{{workitemId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch All Workitems",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7003/ftr/workItems",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7003",
+					"path": [
+						"ftr",
+						"workItems"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Track Workitem by User ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7003/ftr/workItems/managed-user/{{userId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7003",
+					"path": [
+						"ftr",
+						"workItems",
+						"managed-user",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Workitem Status by Workitem ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7003/ftr/workItems/managed-status/{{workitemId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7003",
+					"path": [
+						"ftr",
+						"workItems",
+						"managed-status",
+						"{{workitemId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Workitem Status by Workitem ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7003/ftr/workItems/managed-update/{{workitemId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7003",
+					"path": [
+						"ftr",
+						"workItems",
+						"managed-update",
+						"{{workitemId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Assign Terminal for Workitem",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7003/ftr/workItems/managed-terminal/{{workitemId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7003",
+					"path": [
+						"ftr",
+						"workItems",
+						"managed-terminal",
+						"{{workitemId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Allocate Vehicle for Workitem",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7003/ftr/workItems/managed-vehicle/{{workitemId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7003",
+					"path": [
+						"ftr",
+						"workItems",
+						"managed-vehicle",
+						"{{workitemId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
