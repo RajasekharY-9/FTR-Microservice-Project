@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "381f037e-abde-4cca-8713-c243e11175b5",
+		"name": "FTR Terminal API",
+		"description": "Collection for Terminal CRUD operations",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Terminal",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"terminalId\": \"T001\",\"terminalName\": \"Terminal 1\",\"country\": \"USA\",\"itemType\": \"Container\",\"terminalDescription\": \"Main container terminal\",\"capacity\": 1000,\"availableCapacity\": 800,\"status\": \"Active\",\"harborLocation\": \"Port of Los Angeles\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/ftr/terminals",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"ftr",
+						"terminals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View All Terminals",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/ftr/terminals",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"ftr",
+						"terminals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Terminal by Terminal ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/ftr/terminals/T001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"ftr",
+						"terminals",
+						"T001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Terminals by Item Type",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/ftr/terminals/itemType/Container",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"ftr",
+						"terminals",
+						"itemType",
+						"Container"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Terminal Capacity",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/ftr/terminals/T001/1200",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"ftr",
+						"terminals",
+						"T001",
+						"1200"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Terminal",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/ftr/terminals/T001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"ftr",
+						"terminals",
+						"T001"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

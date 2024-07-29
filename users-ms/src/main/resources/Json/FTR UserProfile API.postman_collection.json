@@ -1,0 +1,184 @@
+{
+	"info": {
+		"_postman_id": "fb56add2-af51-437c-b3d7-8e8c2670ab59",
+		"name": "FTR UserProfile API",
+		"description": "Collection for UserProfile CRUD operations",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create UserProfile",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"userId\": 1,\"firstName\": \"John\",\"lastName\": \"Doe\",\"emailId\": \"john.doe@example.com\",\"mobileNumber\": 1234567890,\"password\": \"password123\",\"nationality\": \"American\",\"passportNumber\": \"P1234567\",\"permanentAddress\": \"1234 Elm Street\",\"officeAddress\": \"5678 Oak Street\",\"personalIdentificationNumber\": 987654321}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user-profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user-profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View UserProfile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/user-profile/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user-profile",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update UserProfile",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"userId\": 1,\"firstName\": \"John\",\"lastName\": \"Doe\",\"emailId\": \"john.doe@example.com\",\"mobileNumber\": 1234567890,\"password\": \"newpassword123\",\"nationality\": \"American\",\"passportNumber\": \"P1234567\",\"permanentAddress\": \"1234 Elm Street\",\"officeAddress\": \"5678 Oak Street\",\"personalIdentificationNumber\": 987654321}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user-profile/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user-profile",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete UserProfile",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/user-profile/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user-profile",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create work item",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \r\n    \"userId\": 12346,\r\n    \"itemName\": \"uSERitem\",\r\n    \"itemType\": \"Type A\",\r\n    \"itemDescription\": \"Description of item A\",\r\n    \"messageToRecipient\": \"Please handle this item with care.\",\r\n    \"quantity\": \"10\",\r\n    \"sourceCountry\": \"Country A\",\r\n    \"destinationCountry\": \"Country B\",\r\n    \"originHarborLocation\": \"Harbor A\",\r\n    \"selectedHarborLocation\": \"Harbor B\",\r\n    \"shippingDate\": \"2024-07-30\",\r\n    \"amount\": 1000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user-profile/user-newitem",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user-profile",
+						"user-newitem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Harbors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/user-profile/all-harbors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user-profile",
+						"all-harbors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update workitem",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/user-profile/user-update-item/{workitemId}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user-profile",
+						"user-update-item",
+						"{workitemId}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
