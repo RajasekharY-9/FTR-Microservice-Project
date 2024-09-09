@@ -6,12 +6,13 @@ import com.transport.users_ms.entity.WorkitemDTO;
 import com.transport.users_ms.exception.UserProfileException;
 import com.transport.users_ms.service.UserProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/user-profile")
+@RequestMapping("/users")
 public class UserProfileController {
     @Autowired
     private UserProfileService userProfileService;
@@ -27,8 +28,8 @@ public class UserProfileController {
     }
     @PutMapping("/user-update-item/{workitemId}")
     //http://localhost:8080/api/user-profile/user-update-item/{workitemId}
-    public void updateWorkItem(@PathVariable String workitemId, @RequestBody WorkitemDTO workitemDTO) throws UserProfileException {
-         userProfileService.updateWorkItem(workitemId,workitemDTO);
+    public String updateWorkItem(@PathVariable String workitemId, @RequestBody WorkitemDTO workitemDTO) throws UserProfileException {
+       return  userProfileService.updateWorkItem(workitemId,workitemDTO);
     }
 
     @PutMapping("/{userId}")

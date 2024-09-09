@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/APIGatewayServices/APIGatewayServices.iml" filepath="$PROJECT_DIR$/APIGatewayServices/APIGatewayServices.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/MsProject1.iml" filepath="$PROJECT_DIR$/.idea/MsProject1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/admin-server-ms2/admin-server-ms2.iml" filepath="$PROJECT_DIR$/admin-server-ms2/admin-server-ms2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-server-serviceRegistry/eureka-server-serviceRegistry.iml" filepath="$PROJECT_DIR$/eureka-server-serviceRegistry/eureka-server-serviceRegistry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/terminal-ms/terminal-ms.iml" filepath="$PROJECT_DIR$/terminal-ms/terminal-ms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/users-ms/users-ms.iml" filepath="$PROJECT_DIR$/users-ms/users-ms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vehicle-ms/vehicle-ms.iml" filepath="$PROJECT_DIR$/vehicle-ms/vehicle-ms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/workitem-ms/workitem-ms.iml" filepath="$PROJECT_DIR$/workitem-ms/workitem-ms.iml" />
+    </modules>
+  </component>
+</project>

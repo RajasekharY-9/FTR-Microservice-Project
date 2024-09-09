@@ -3,7 +3,10 @@ server:
 spring:
   application:
     name: vehicle-ms
-
+  boot:
+    admin:
+      client:
+        url: http://localhost:8231
   datasource:
     url: jdbc:mysql://localhost:3306/freight_transport_region_vehicle
     username: root
@@ -21,4 +24,12 @@ spring:
       date: dd-MMM-yyyy
   messages:
     basename: ValidationMessages
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
 

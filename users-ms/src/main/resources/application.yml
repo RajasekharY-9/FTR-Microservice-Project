@@ -1,9 +1,13 @@
 server:
-  port: 8080
+  port: 9999
 
 spring:
   application:
     name: user-ms
+  boot:
+    admin:
+      client:
+        url: http://localhost:8231
   datasource:
     url: jdbc:mysql://localhost:3306/freight_transport_region_user
     username: root
@@ -31,3 +35,57 @@ eureka:
 SERVICE:
   User_Already_Exists: User already present
   User_Not_Exists: User not available
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always
+resilience4j:
+  circuitbreaker:
+    instances:
+      createWorkItem:
+        registerHealthIndicator: true
+        ringBufferSizeInClosedState: 10
+        ringBufferSizeInHalfOpenState: 5
+        waitDurationInOpenState: 10000
+        failureRateThreshold: 50
+        eventConsumerBufferSize: 10
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
+        permittedNumberOfCallsInHalfOpenState: 2
+
+      updateWorkItem:
+        registerHealthIndicator: true
+        ringBufferSizeInClosedState: 10
+        ringBufferSizeInHalfOpenState: 5
+        waitDurationInOpenState: 10000
+        failureRateThreshold: 50
+        eventConsumerBufferSize: 10
+      getAvailableHarborLocations:
+        registerHealthIndicator: true
+        ringBufferSizeInClosedState: 10
+        ringBufferSizeInHalfOpenState: 5
+        waitDurationInOpenState: 10000
+        failureRateThreshold: 50
+        eventConsumerBufferSize: 10
+  retry:
+    instances:
+      default:
+        maxAttempts: 3
+        waitDuration: 5000
+
+
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always

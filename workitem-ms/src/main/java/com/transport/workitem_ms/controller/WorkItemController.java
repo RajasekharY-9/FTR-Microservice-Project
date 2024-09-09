@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/ftr/workItems")
+@RequestMapping("/workItems")
 public class WorkItemController {
     @Autowired
     private WorkItemService workitemService;

@@ -4,6 +4,10 @@ server:
 spring:
   application:
     name: terminal-ms
+  boot:
+    admin:
+      client:
+        url: http://localhost:8231
 
   datasource:
     url: jdbc:mysql://localhost:3306/freight_transport_region_terminal
@@ -21,3 +25,15 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always

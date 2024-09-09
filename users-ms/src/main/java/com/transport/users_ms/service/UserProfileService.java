@@ -2,16 +2,11 @@ package com.transport.users_ms.service;
 
 
 import com.transport.users_ms.dto.UserProfileDTO;
-import com.transport.users_ms.entity.UserProfile;
 import com.transport.users_ms.entity.WorkitemDTO;
 import com.transport.users_ms.exception.UserProfileException;
-import com.transport.users_ms.repo.UserProfileRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
-import java.util.Optional;
-
 
 
 public interface UserProfileService {
@@ -23,7 +18,7 @@ public interface UserProfileService {
     WorkitemDTO createWorkItem(WorkitemDTO workitemDTO);
 
 
-    void updateWorkItem(String workitemId,WorkitemDTO workitemDTO);
+    String updateWorkItem(String workitemId, WorkitemDTO workitemDTO);
 
     List<String> getAvailableHarborLocations();
 }

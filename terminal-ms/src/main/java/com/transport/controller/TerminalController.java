@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/ftr/terminals")
+@RequestMapping("/terminals")
+@CrossOrigin(origins = "*") // This will allow cross-origin requests from any origin
 public class TerminalController {
     @Autowired
     private TerminalServiceImpl terminalService;
@@ -31,7 +32,7 @@ public class TerminalController {
         return ResponseEntity.ok(terminalService.fetchTerminalsByItemType(itemType));
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<TerminalDTO> insertNewTerminal(@Valid @RequestBody TerminalDTO terminalDTO) {
         return ResponseEntity.ok(terminalService.insertNewTerminal(terminalDTO));
     }
